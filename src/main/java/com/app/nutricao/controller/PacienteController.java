@@ -23,11 +23,11 @@ public class PacienteController {
     private PacienteService service;
 
     @PostMapping
-    @CacheEvict(value = "ticket", allEntries = true)
+    @CacheEvict(value = "paciente", allEntries = true)
     public ResponseEntity createdTicket(@RequestBody @Valid PacienteDto dto, UriComponentsBuilder uriBuilder) {
         Paciente p = service.savePaciente(dto);
-        var uri = uriBuilder.path("/paciente/{id}").buildAndExpand(p).toUri();
-        return ResponseEntity.created(uri).body(new PacienteDetalheDto());
+        var uri = uriBuilder.path("/paciente/{id}").buildAndExpand(p.getNome()).toUri();
+        return ResponseEntity.created(uri).body(new PacienteDetalheDto(p));
     }
 
 }
