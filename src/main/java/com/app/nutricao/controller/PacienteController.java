@@ -1,7 +1,6 @@
 package com.app.nutricao.controller;
 
 import com.app.nutricao.dto.PacienteDetalheDto;
-import com.app.nutricao.dto.PacienteDto;
 import com.app.nutricao.model.Paciente;
 import com.app.nutricao.service.PacienteService;
 import jakarta.validation.Valid;
