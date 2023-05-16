@@ -4,6 +4,9 @@ API para Sistema de Nutrição, sera criado o front-end.
 
 ## ⚙️ Funcionalidades
 - [x] Estrutura do projeto.
+- [x] Classe Paciente.
+- [x] Classe Paciente Dto.
+- [x] Banco de teste.
 
 
 
