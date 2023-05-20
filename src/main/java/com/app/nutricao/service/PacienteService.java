@@ -6,6 +6,8 @@ import com.app.nutricao.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class PacienteService {
 
@@ -19,5 +21,13 @@ public class PacienteService {
 
         repository.save(p);
         return p;
+    }
+
+    public void deletarPaciente(Long id) {
+        Optional<Paciente> paciente = repository.findById(id);
+        if (paciente.isPresent()) {
+            repository.deleteById(id);
+        }
+
     }
 }
