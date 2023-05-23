@@ -1,6 +1,6 @@
 package com.app.nutricao.exception;
 
-public class ValidacaoException {
+public class ValidacaoException extends RuntimeException{
 
     public ValidacaoException(String mensagem) {
         super(mensagem);
