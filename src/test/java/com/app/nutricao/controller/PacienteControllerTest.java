@@ -21,7 +21,7 @@ class PacienteControllerTest {
 
 
     @Test
-    @DisplayName("Test erro 400")
+    @DisplayName("Teste erro 400")
     void criarPaciente() throws Exception{
         var response = mvc.perform(post("/paciente"))
                 .andReturn().getResponse();
@@ -30,7 +30,7 @@ class PacienteControllerTest {
     }
 
     @Test
-    @DisplayName("Test  201")
+    @DisplayName("Teste  201")
     void salvarPaciente() throws Exception{
 
         String json = "{\"nome\":\"Jackson\",\"pesoAtual\":\"82\"}}";
@@ -43,6 +43,20 @@ class PacienteControllerTest {
                 .andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.CREATED.value());
+
+    }
+
+    @Test
+    @DisplayName("Teste Delete")
+    void user_test5() throws Exception {
+
+        var response = mvc
+                .perform(delete("/login/{id}", 1L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                )
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
 
     }
 }
