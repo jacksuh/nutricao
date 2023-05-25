@@ -48,7 +48,7 @@ class PacienteControllerTest {
 
     @Test
     @DisplayName("Teste Delete")
-    void user_test5() throws Exception {
+    void deletarPaciente() throws Exception {
 
         var response = mvc
                 .perform(delete("/login/{id}", 1L)
