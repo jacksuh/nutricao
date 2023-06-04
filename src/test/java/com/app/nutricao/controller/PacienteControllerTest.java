@@ -46,6 +46,19 @@ class PacienteControllerTest {
 
     }
 
+
+    @Test
+    @DisplayName("Test http GET 200")
+    void getAllPacientes()  throws Exception{
+        var response = mvc
+                .perform(get("/paciente")
+                )
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+    }
+
+
     @Test
     @DisplayName("Teste Delete")
     void deletarPaciente() throws Exception {
