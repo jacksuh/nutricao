@@ -25,6 +25,13 @@ public class PacienteController {
         return ResponseEntity.created(uri).body(new PacienteDetalheDto(p));
     }
 
+    @GetMapping
+    @Cacheable(value = "paciente")
+    public ResponseEntity<Page<Ticket>> getAllTicket(@PageableDefault(sort = "id", page = 0, size = 10) Pageable page){
+        Page<Ticket> listTicket = service.getAll(page);
+        return ResponseEntity.ok(listTicket);
+    }
+
     @DeleteMapping("/{id}")
     @CacheEvict(value = "paciente", allEntries = true)
     public ResponseEntity deletarCadastroPaciente(@PathVariable Long id){
