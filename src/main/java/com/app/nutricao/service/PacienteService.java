@@ -17,7 +17,7 @@ public class PacienteService {
     private PacienteRepository repository;
 
 
-    public Page<Paciente> getAll(Pageable page) {
+    public Page<Paciente> getAllPaciente(Pageable page) {
         return repository.findAll(page);
     }
 

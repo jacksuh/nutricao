@@ -32,7 +32,7 @@ public class PacienteController {
     @GetMapping
     @Cacheable(value = "paciente")
     public ResponseEntity<Page<Paciente>> getAllTicket(@PageableDefault(sort = "id", page = 0, size = 10) Pageable page){
-        Page<Paciente> listTicket = service.getAll(page);
+        Page<Paciente> listTicket = service.getAllPaciente(page);
         return ResponseEntity.ok(listTicket);
     }
 
