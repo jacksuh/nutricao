@@ -36,6 +36,16 @@ public class PacienteController {
         return ResponseEntity.ok(listTicket);
     }
 
+
+    @PutMapping("/{id}")
+    @CacheEvict(value = "ticket", allEntries = true)
+    public ResponseEntity updateTicket(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
+        Paciente t = service.atualizarPaciente(dto,id);
+
+        return t != null?
+                ResponseEntity.ok(t) : ResponseEntity.notFound().build();
+    }
+
     @DeleteMapping("/{id}")
     @CacheEvict(value = "paciente", allEntries = true)
     public ResponseEntity deletarCadastroPaciente(@PathVariable Long id){
