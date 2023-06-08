@@ -38,7 +38,7 @@ public class PacienteController {
 
 
     @PutMapping("/{id}")
-    @CacheEvict(value = "ticket", allEntries = true)
+    @CacheEvict(value = "paciente", allEntries = true)
     public ResponseEntity updateTicket(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
         Paciente t = service.atualizarPaciente(dto,id);
 

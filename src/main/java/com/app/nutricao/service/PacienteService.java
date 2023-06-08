@@ -30,6 +30,16 @@ public class PacienteService {
         return p;
     }
 
+    public Paciente atualizarPaciente(PacienteDto dto, Long id) {
+        Optional<Paciente> optional = repository.findById(id);
+        Paciente p = optional.get();
+        p.setNome(dto.nome());
+        p.setPesoAtual(dto.pesoAtual());
+
+        return repository.save(p);
+    }
+
+
     public void deletarPaciente(Long id) {
         Optional<Paciente> paciente = repository.findById(id);
         if (paciente.isPresent()) {
