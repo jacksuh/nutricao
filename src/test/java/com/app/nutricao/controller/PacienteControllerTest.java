@@ -33,7 +33,7 @@ class PacienteControllerTest {
     @DisplayName("Teste  201")
     void salvarPaciente() throws Exception{
 
-        String json = "{\"nome\":\"Jackson\",\"pesoAtual\":\"82\"}}";
+        String json = "{\"nome\":\"Jackson\",\"pesoAtual\":\"82\"}";
 
         var response = mvc.perform(
                         post("/paciente")
@@ -56,6 +56,24 @@ class PacienteControllerTest {
                 .andReturn().getResponse();
 
         assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+    }
+
+
+    @Test
+    @DisplayName("Test http update 200")
+    void updatePaciente() throws Exception{
+
+        String json = "{\"nome\":\"Jackson\",\"pesoAtual\":\"82\"}";
+
+        var response = mvc.perform(
+                        put("/ticket/{id}", 1L)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(json)
+                )
+                .andReturn().getResponse();
+
+        assertThat(response.getStatus()).isEqualTo(HttpStatus.OK.value());
+
     }
 
 
