@@ -32,14 +32,14 @@ public class PacienteController {
     @GetMapping
     @Cacheable(value = "paciente")
     public ResponseEntity<Page<Paciente>> getAllTicket(@PageableDefault(sort = "id", page = 0, size = 10) Pageable page){
-        Page<Paciente> listTicket = service.getAllPaciente(page);
-        return ResponseEntity.ok(listTicket);
+        Page<Paciente> listPaciente = service.getAllPaciente(page);
+        return ResponseEntity.ok(listPaciente);
     }
 
 
     @PutMapping("/{id}")
     @CacheEvict(value = "paciente", allEntries = true)
-    public ResponseEntity updateTicket(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
+    public ResponseEntity updatPaciente(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
         Paciente t = service.atualizarPaciente(dto,id);
 
         return t != null?
