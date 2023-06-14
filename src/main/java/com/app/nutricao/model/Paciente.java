@@ -22,4 +22,6 @@ public class Paciente {
     private Long id;
     private String nome;
     private String pesoAtual;
+    private String imc;
+
 }
