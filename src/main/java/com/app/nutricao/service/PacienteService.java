@@ -33,6 +33,7 @@ public class PacienteService {
         Paciente p = optional.get();
         p.setNome(dto.nome());
         p.setPesoAtual(dto.pesoAtual());
+        p.setImc(dto.imc());
 
         return repository.save(p);
     }
