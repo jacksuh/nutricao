@@ -32,6 +32,7 @@ public class PacienteService {
         Optional<Paciente> optional = repository.findById(id);
         Paciente p = optional.get();
         p.setNome(dto.nome());
+        p.setAltura(dto.altura());
         p.setPesoAtual(dto.pesoAtual());
         p.setImc(dto.imc());
 
