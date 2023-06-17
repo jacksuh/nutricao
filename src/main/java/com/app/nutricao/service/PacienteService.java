@@ -23,6 +23,7 @@ public class PacienteService {
         Paciente p = new Paciente();
         p.setNome(dto.nome());
         p.setPesoAtual(dto.pesoAtual());
+        p.setAltura(dto.altura());
 
         repository.save(p);
         return p;
