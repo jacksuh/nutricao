@@ -23,7 +23,7 @@ public class PacienteController {
 
     @PostMapping
     @CacheEvict(value = "paciente", allEntries = true)
-    public ResponseEntity criarPaciente(@RequestBody @Valid PacienteDto dto, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity salvarPaciente(@RequestBody @Valid PacienteDto dto, UriComponentsBuilder uriBuilder) {
         Paciente p = service.salvarPaciente(dto);
         var uri = uriBuilder.path("/paciente/{id}").buildAndExpand(p.getNome()).toUri();
         return ResponseEntity.created(uri).body(new PacienteDetalheDto(p));
@@ -39,7 +39,7 @@ public class PacienteController {
 
     @PutMapping("/{id}")
     @CacheEvict(value = "paciente", allEntries = true)
-    public ResponseEntity updatPaciente(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
+    public ResponseEntity updatePaciente(@PathVariable("id") Long id, @RequestBody PacienteDto dto){
         Paciente t = service.atualizarPaciente(dto,id);
 
         return t != null?
